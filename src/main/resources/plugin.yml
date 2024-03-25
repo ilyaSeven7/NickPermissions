@@ -2,3 +2,4 @@ name: NickPermissions
 version: '${project.version}'
 main: me.litedeforged.nickpermissions.NickPermissions
 api-version: '1.19'
+depend: [Essentials]
