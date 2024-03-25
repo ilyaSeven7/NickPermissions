@@ -15,7 +15,7 @@ public class OnPlayerJoin implements Listener {
         Essentials ess = (Essentials) Bukkit.getPluginManager().getPlugin("Essentials");
         Player player = event.getPlayer();
         assert ess != null;
-        if (!ess.getUser(player).getNick().equalsIgnoreCase(player.getName()) && !player.hasPermission("playercondition.keepnickname")) {
+        if (!ess.getUser(player).getNick().equalsIgnoreCase(player.getName()) && !player.hasPermission("nickpermission.keepnickname")) {
             ess.getUser(player).setNickname(player.getName());
         }
     }
