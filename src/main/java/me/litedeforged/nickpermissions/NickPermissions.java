@@ -10,7 +10,7 @@ public final class NickPermissions extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         Bukkit.getServer().getConsoleSender().sendMessage(MiniMessage.miniMessage().deserialize("<green>Plugin Has Been Enable!"));
-
+        getServer().getPluginManager().registerEvents(new OnPlayerJoin(), this);
     }
 
     @Override
