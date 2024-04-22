@@ -1,4 +1,4 @@
-package me.litedeforged.nickpermissions;
+package me.litedeforged.nickpermissions.listeners;
 
 import com.earth2me.essentials.Essentials;
 import org.bukkit.Bukkit;
@@ -9,12 +9,14 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 
 
-public class OnPlayerJoin implements Listener {
+public class PlayerJoin implements Listener {
+
+    Essentials ess = (Essentials) Bukkit.getPluginManager().getPlugin("Essentials");
+
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        Essentials ess = (Essentials) Bukkit.getPluginManager().getPlugin("Essentials");
+
         Player player = event.getPlayer();
-        assert ess != null;
         if (!ess.getUser(player).getNick().equalsIgnoreCase(player.getName()) && !player.hasPermission("nickpermission.keepnickname")) {
             ess.getUser(player).setNickname(player.getName());
         }
