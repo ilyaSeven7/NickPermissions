@@ -11,14 +11,18 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 public class PlayerJoin implements Listener {
 
-    Essentials ess = (Essentials) Bukkit.getPluginManager().getPlugin("Essentials");
+    Essentials essentials = (Essentials) Bukkit.getPluginManager().getPlugin("Essentials");
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
 
         Player player = event.getPlayer();
-        if (!ess.getUser(player).getNick().equalsIgnoreCase(player.getName()) && !player.hasPermission("nickpermission.keepnickname")) {
-            ess.getUser(player).setNickname(player.getName());
+
+        if (!player.hasPermission("nickpermission.keepnickname")) return;
+
+        assert essentials != null;
+        if (!essentials.getUser(player.getUniqueId()).getNick().equalsIgnoreCase(player.getName())) {
+            essentials.getUser(player).setNickname(player.getName());
         }
     }
 }
